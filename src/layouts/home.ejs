@@ -1,0 +1,22 @@
+<html>
+	<%- include partials/head %>
+	<body>
+		<%= __('hola')%>
+		<%= __ ('bodycopy')%>
+
+		<p>No puedo, no debo</p>
+
+		<%- contents %>
+		
+		<ul>
+		<% collections['pages_' + locale].forEach(function(el, index) {%>
+			<% if (el.menuvisible) { %>
+			<li><a href="/<%= el.path %>" class="<% if (path == el.path) { %>active<% } %>"><%= el.title %></a></li>
+			<% } %>
+		<% }); %>
+		</ul>
+		
+		<%- include partials/langs %>
+		<%- include partials/scripts %>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+////
+/// Configuration
+/// @author Nicemondays
+/// @since version 0.1
+////
+
+
+/// Se usa como valor inicial en el body y para el cálculo de las unidades rem
+/// @see {function} rem
+/// @see {function} rem-space
+$base-font-size:    16px;
+
+/// Se usa para el calculo del line-height armonizado en el mixin font-size
+/// @see {mixin} font-size
+$base-line-height:  30px;
+
+/// Default font-weight value
+$base-font-weight: 	400;
+
+/// Default round corner value
+$base-round:        4px;
+
+/// Variable maestra a través de la cual serán todos los calculos de espacio en el framework
+/// Por defecto esta variable tiene el mismo valor que $base-line-height
+/// @see {function} rem-space
+/// @see {function} space
+$base-spacing-unit: $base-line-height;
+
+/// En este mapa definimos las rutas que se usarán para los assets
+/// El primer item del mapa define la ruta base de todos los assets
+$paths: (
+	base: '..',
+	fonts: 'fonts',
+	images: 'images'
+);
+
+/// En esta variable se define el esquema de color del proyecto. Colores base y tonos de color.
+/// Para acceder a estas variables se debe usar la función **getcolor**
+/// Si los helpers están activos se generarán estilos para el color de texto y para el color de fondo
+/// con la siguiente forma **.color--<color><tono>** **.bgcolor--<color><tono>
+/// @see {function} getcolor
+$colors: (
+	brand: #010101,
+	bg: #e9e9e9,
+	dark: black,
+	light: white,
+	text: (
+		base: #000,
+		light: #fff,
+		semi: #bbb,
+		semidark: #666
+	),
+	ui: (
+		base: #363636,
+		dark: #000,
+		semi: #2f2f2f,
+		light: #bebebe,
+		ultralight: #e5e5e5
+	)
+);
+
+/// En esta variable debe guardarse todas las fuentes que se usarán en el proyecto.
+/// Para acceder a estas variables se debe usar la función **getface**
+/// @see {function} getface
+$faces: (
+	brand: ('AvantGarde', Helvetica, Arial),
+	bodycopy: (Georgia, Serif)
+);
+
+
+/// En esta variable guardamos todos los tamaños de texto maestros del site.
+/// Esto generará los estilos .fontsize--<name>
+$sizes: (
+	title: 28px,
+	plus: 18px,
+	bodycopy: 15px
+);
+
+$easing: (
+	outCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000),
+	outQuart: cubic-bezier(0.165, 0.840, 0.440, 1.000),
+	inOutCubic: cubic-bezier(0.65, 0.05, 0.36, 1)
+);
+
+$desktopMenuHeight: 80px;
+$brandLetterSpacing: 0.075em;
+
+/// define si usamos max-width o min-width (mobile first) para nuestros breakpoints
+@include breakpoint-set('default feature', 'max-width');
+/// Define si se va a convertir los breakpoints a unidades em
+@include breakpoint-set('to ems', true);
+
+/// Aquí definimos los diferentes breakpoints que tendrá nuestro proyecto
+/// @link <http://breakpoint-sass.com>
+@include add-breakpoint('mobile', max-width 640px, true);
+@include add-breakpoint('tablet', max-width 1008px, true);
+@include add-breakpoint('s-desk', max-width 1150px, true);
+
+
+
+/// Base grid settings
+$grid-settings: (
+	columns: 12,
+	gutter: 12px
+);
+
+$susy: (
+	columns: 12,
+	gutters: 0.25
+);
+
+/// Esta mapa guarda la configuración que se usara para generar los space helpers. 
+/// Este mapa generará una clase combinando los datos definidos
+/// @example .mb--normal { @include rem-space(margin-bottom, 1); }
+$space: (
+	mb: (
+		prop: margin-bottom,
+		alias: (zero, half, normal, double),
+		values: (0, 0.5, 1, 2)
+	),
+	p: (
+		prop: padding,
+		alias: (zero, normal, double),
+		values: (0, 1, 2)
+	)
+);
+
+
+/// En este mapa se guarda toda la confiración necesaria para pintar el loader css
+$loader: (
+	iscenter: true,
+	dotsize: 15px,
+	dotcolor: #5889cb,
+	animation-duration: 1.2s,
+	animation-move: 25px
+);
+
+
+/// Estas variables definen si se incluirán en el framework estas clases. 
+
+/// Define si se incluiran los helpers al exportar
+$use-helpers: 		false;
+/// Define si se incluiran los formulario al exportar
+$use-forms: 		false;
+/// Define si se incluiran los botones al exportar
+$use-buttons: 		true;
+/// Define si se incluiran las listas al exportar
+$use-lists: 		false;
+/// Define si se incluira el loader css
+$use-loader: 		false;
+/// Define si se incluira el objeto dropmenu
+$use-dropmenu: 		false;
+/// Define si se incluira el objeto stackmenu
+$use-stackmenu:		false;
+/// Define si se incluira el objeto tabdata
+$use-tabdata:		false;
+
+
+

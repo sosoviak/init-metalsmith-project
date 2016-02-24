@@ -1,0 +1,51 @@
+*{
+	-webkit-font-smoothing: antialiased;
+	//-webkit-backface-visibility: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// html {
+// 	overflow-x: hidden;
+// 	overflow-y: auto;
+// }
+// html, body {
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow-x: hidden;
+	color: getcolor(light);
+	background-color: getcolor(brand);
+	font-family: getface(bodycopy);
+	&.noscroll {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: getcolor(bg);
+	color: getcolor(text);
+	transition: all 0.5s ease;
+	&.-open {
+		transform: translateX(-40%);
+		@include respond-to(mobile) {
+			transform: translateX(-80%);
+		}
+	}
+}
+//img { max-width: 100%; }
+a { outline: 0; text-decoration: none; }
+
+h1,h2,h3,h4,h5,h6,ul { margin: 0; font-size: inherit; }
+
+svg.icon {
+	fill: currentColor;
+}

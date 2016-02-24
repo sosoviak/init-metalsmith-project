@@ -1,0 +1,13 @@
+<html>
+	<%- include partials/head %>
+	<body>
+		<%- contents %>
+
+		<% collections['pages_' + locale].forEach(function(el, index) {%>
+			<li><a href="/<%= el.path %>" class="<% if (path == el.path) { %>active<% } %>"><%= el.title %></a></li>
+		<% }); %>
+		
+		<%- include partials/langs %>
+		
+	</body>
+</html>

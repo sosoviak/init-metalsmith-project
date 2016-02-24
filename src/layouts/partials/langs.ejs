@@ -1,0 +1,7 @@
+<ul>
+<% var availableLocales = locales.filter(x => x !== locale && !!lang(x)) %>
+<% locales.forEach(function(el){ %>
+	<% var path = (lang(el).path) ? lang(el).path : ''; %>
+	<li><a href="/<%= path %>"><%= el %></a></li>
+<% }) %>
+</ul>
