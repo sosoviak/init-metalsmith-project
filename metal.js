@@ -24,8 +24,8 @@ var metalsmith = Metalsmith(__dirname)
         }
     }))
 	.use(collections({
-		'pages_es': '*_es.html',
-		'pages_en': '*_en.html',
+		'pages_es': '**/*_es.html',
+		'pages_en': '**/*_en.html',
 	}))
 	.use(multiLanguage({
         default: DEFAULT_LOCALE,
