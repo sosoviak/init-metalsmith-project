@@ -1,10 +1,27 @@
+{% import getInclude('helpers') as helpers %}
 <html>
 	<head>
 		<title>{{ title }}</title>
 		<link rel="stylesheet" href="/assets/css/main.css">
 	</head>
 	<body>
+		<ul>
+			{% for el in locales %}
+			<li><a href="/{{ lang(el).path }}">{{ el }}</a></li>
+			{% endfor %}
+		</ul>
+		{{ __('hola') }}
+		{{ __ ('bodycopy') }}
 		{% block content %}{% endblock %}
+
+		{{ helpers.link('esto es un link') }}
+		<ul>
+		{% for el in collections['pages_' + locale] %}
+			{% if el.menuvisible %}
+			<li><a href="/{{ el.path }}" class="{{'active' if path == el.path }}">{{ el.title }}</a></li>
+			{% endif %}
+		{% endfor %}
+		</ul>
 		<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="/assets/js/main.js"></script>
 	</body>

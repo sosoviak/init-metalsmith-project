@@ -5,7 +5,8 @@
   "main": "index.js",
   "project": {
     "public_folder": "dist",
-    "src_folder": "src"
+    "src_folder": "src",
+    "layouts_folder": "src/layouts/"
   },
   "browsersSupport": [
     "> 1%",
@@ -27,7 +28,9 @@
     "grunt-shell": "^1.1.2",
     "grunt-svgstore": "^1.0.0",
     "metalsmith": "^2.1.0",
+    "metalsmith-beautify": "0.0.7",
     "metalsmith-collections": "^0.7.0",
+    "metalsmith-define": "^1.0.0",
     "metalsmith-i18n": "^0.2.0",
     "metalsmith-layouts": "^1.5.4",
     "metalsmith-multi-language": "^0.1.1",
