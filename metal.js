@@ -19,16 +19,17 @@ var metalsmith = Metalsmith(__dirname)
 	.source('src/pages')
 	.destination('dist')
     .use(define({
-        getLayout: function(_name){
-            return  _name + '.j2';
-        },
-        getInclude: function(_name) {
-            return 'includes/' + _name + '.j2';
-        }
+        _: require('underscore')
     }))
 	.use(collections({
-		'pages_es': '**/*_es.html',
-		'pages_en': '**/*_en.html',
+		'pages_es': {
+            pattern: '**/*_es.html',
+            sortBy: 'orderMenu'
+        },
+		'pages_en': {
+            pattern: '**/*_en.html',
+            sortBy: 'orderMenu'
+        },
         'subfolder_es': 'subfolder/*_es.html',
         'subfolder_en': 'subfolder/*_en.html'
 	}))
