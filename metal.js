@@ -7,20 +7,23 @@ var Metalsmith = require('metalsmith'),
 	collections = require('metalsmith-collections'),
     define = require('metalsmith-define'),
     beautify = require('metalsmith-beautify'),
+    nunjucks = require('nunjucks'),
     pkg = require('./package.json');
 
-const 	DEFAULT_LOCALE = 'es',
-		LOCALES = ['en', 'es'];
+const   DEFAULT_LOCALE = 'es',
+        LOCALES = ['en', 'es'];
+
+nunjucks.configure('./src/layouts', {watch: false});
 
 var metalsmith = Metalsmith(__dirname)
 	.source('src/pages')
 	.destination('dist')
     .use(define({
         getLayout: function(_name){
-            return pkg.project.layouts_folder + _name + '.j2';
+            return  _name + '.j2';
         },
         getInclude: function(_name) {
-            return pkg.project.layouts_folder + 'includes/' + _name + '.j2';
+            return 'includes/' + _name + '.j2';
         }
     }))
 	.use(collections({

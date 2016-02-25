@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       },
       dev: {
         files: [
-          '<%= pkg.project.src_folder %>/**/*.{html,ejs,scss,js}'
+          '<%= pkg.project.src_folder %>/**/*.{html,j2,scss,js}'
         ],
         tasks: ['dev']
       }

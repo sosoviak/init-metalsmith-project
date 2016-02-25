@@ -14,7 +14,9 @@
 		{{ __ ('bodycopy') }}
 		{% block content %}{% endblock %}
 
-		{{ helpers.link('esto es un link') }}
+		<p>esto es el path: {{ path }}</p>
+
+		{{ helpers.link(__('esto es un link')) }}
 		<ul>
 		{% for el in collections['pages_' + locale] %}
 			{% if el.menuvisible %}
