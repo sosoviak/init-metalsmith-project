@@ -1,4 +1,4 @@
-{% import getInclude('helpers') as helpers %}
+{% import "includes/helpers.j2" as helpers %}
 <html>
 	<head>
 		<title>{{ title }}</title>
@@ -14,14 +14,10 @@
 		{{ __ ('bodycopy') }}
 		{% block content %}{% endblock %}
 
-		<p>esto es el path: {{ path }}</p>
-
 		{{ helpers.link(__('esto es un link')) }}
 		<ul>
 		{% for el in collections['pages_' + locale] %}
-			{% if el.menuvisible %}
 			<li><a href="/{{ el.path }}" class="{{'active' if path == el.path }}">{{ el.title }}</a></li>
-			{% endif %}
 		{% endfor %}
 		</ul>
 		<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>

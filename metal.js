@@ -29,6 +29,8 @@ var metalsmith = Metalsmith(__dirname)
 	.use(collections({
 		'pages_es': '**/*_es.html',
 		'pages_en': '**/*_en.html',
+        'subfolder_es': 'subfolder/*_es.html',
+        'subfolder_en': 'subfolder/*_en.html'
 	}))
 	.use(multiLanguage({
         default: DEFAULT_LOCALE,
@@ -41,7 +43,14 @@ var metalsmith = Metalsmith(__dirname)
     }))
     .use(permalinks({
         relative: false,
-        pattern: ':locale/:title/'
+        pattern: ':locale/:title/',
+        linksets: [{
+            match: { collection: 'subfolder_es' },
+            pattern: ':locale/subcarpeta/:title/'
+        }, {
+            match: { collection: 'subfolder_en' },
+            pattern: ':locale/subfolder/:title/'
+        }]
     }))
 	.use(layouts({
         engine: 'nunjucks',
