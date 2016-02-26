@@ -20,6 +20,23 @@
 			<li><a href="/{{ el.path }}" class="{{'active' if path == el.path }}">{{ el.title }}</a></li>
 		{% endfor %}
 		</ul>
+
+		<ul>
+			{% for el in collections['pages_' + locale] %}
+				{% set collection = _.without(el.collection, 'pages_' + locale) %}
+				{% if collection.length %}
+					<li>{{ __(collection[0]) }}
+						<ul>
+							{% for sub in collections[collection] %}
+								<li><a href="/{{ sub.path }}" class="{{'active' if path == sub.path }}">{{ sub.title }}</a></li>
+							{% endfor %}
+						</ul>
+					</li>
+				{% else %}
+					<li><a href="/{{ el.path }}" class="{{'active' if path == el.path }}">{{ el.title }}</a></li>
+				{% endif %}
+			{% endfor %}
+		</ul>
 		<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="/assets/js/main.js"></script>
 	</body>
